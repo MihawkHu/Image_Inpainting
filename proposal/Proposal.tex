@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{graphicx}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{eg}{Example}
+\newtheorem{ex}{Exercise}
+\newtheorem{defi}{Definition}
+\newtheorem{hw}{Problem}
+\newenvironment{sol}
+  {\par\vspace{3mm}\noindent{\it Solution}.}
+  {\qed}
+
+\newcommand{\ov}{\overline}
+\newcommand{\cb}{{\cal B}}
+\newcommand{\cc}{{\cal C}}
+\newcommand{\cd}{{\cal D}}
+\newcommand{\ce}{{\cal E}}
+\newcommand{\cf}{{\cal F}}
+\newcommand{\ch}{{\cal H}}
+\newcommand{\cl}{{\cal L}}
+\newcommand{\cm}{{\cal M}}
+\newcommand{\cp}{{\cal P}}
+\newcommand{\cz}{{\cal Z}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\dist}{\mbox{\rm dist}}
+\newcommand{\bn}{{\mathbf N}}
+\newcommand{\bz}{{\mathbf Z}}
+
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{2ex}
+\newenvironment{proofof}[1]{\bigskip\noindent{\itshape #1. }}{\hfill$\Box$\medskip}
+
+\usepackage{enumerate,fullpage,proof,color}
+\newcommand{\Infer}[2]{\vcenter{\infer{#2}{#1}}}
+\newcommand{\InferN}[3]{\vcenter{\infer[#3]{#2}{#1}}}
+
+\begin{document}
+
+\title{\huge\textbf{\ \\ \ \\Image Inpainting}\vspace{11cm}}
+\author{	
+	\large
+	Course: Software Engineering\ \ \ \ \ \ \  \ \  \  \  \ \ \ \ \ \  \ \ \ \ \\
+	\ \ \ \ \ \ \ \ \ \ \ Group Member: Hu Hu \ mihawkhu@gmail.com\ \ \ \ \ \ \ \ \ \\
+	\ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Yesheng Ma \ kimi.ysma@gmail.com \\
+	\ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \   \ Yikai Zou \ zouyikai1014@163.com\\
+	Instructor: Bin Sheng \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \\
+	Project Period: 9/2016 - 12/2016\ \ \ \ \  \ \ \ \ \ \ \ \ \ \ 	
+	} \date{ }
+
+\maketitle\thispagestyle{empty}
+\newpage
+\tableofcontents\thispagestyle{empty}
+\newpage
+\section{Background and Analysis of the Problem}
+Several techniques:
+\begin{enumerate}[1.]
+	\item Partial Differential Equation (PDE) based algorithm is iterating and propagating information about the graph to restore the graph.
+	\item Texture synthesis based Image In-painting is to to produce more of that texture
+	\item Wavelet Transform in two dimensions based in-painting algorithms to fix images
+	\item Semi-automatic and fast in-painting fixes the graph with the help of human assistance.
+	\item Using Markov random fields (MRF) to model the image and do image in-painting based on Bayesian learning in acyclic graphs.
+\end{enumerate}
+TODO:
+No universal and efficient algorithms to solve all kinds of image in-painting problems.
+
+
+\section{Proposed Goal, Objectives, Target Population}
+\subsection{Goal}
+\qquad This project managed to implement the image inpainting algorithm which is mentioned in previous papers. We will try to solve the problem that they meet and give the better method to do the image inpainting. The proposed goal is that when given a picture and a chosen area, ie, draw a area on smart phone. Then we will remove the object in this area and inpaint the picture, which we con't find there is something removed.
+
+\qquad Just as the following two images show, the left one is the origin image, the right one is the image after inpainting, you can find that the landmark is removed from the image.
+
+\begin{figure}[H]
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{1.jpg}
+	\end{subfigure}%
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{2.jpg}
+	\end{subfigure}%
+	\caption{Two images to illustrate image inpainting}
+\end{figure}
+ 
+\qquad Finally, we managed to make an application in Andorid and an application in web page.
+\subsection{Target Population}
+\qquad Because we managed to make a smart phone application and a web page application, our target population is those who use smart phone and computer and want to inpaint their pictures.
+\section{Implementation Plan}
+\qquad First, we will research the method that how previous people do this. 
+
+\qquad Then we will summary their work and find the advantage and disadvantage of them. 
+
+\qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we manage to try this topic by CNN, which haven't been tried by anyone. 
+
+\qquad Finally, we will transform our result to practical implementation such as Andorid APP and web APP.
+\section{Project Scope}
+
+
+
+\section{Benefits}
+\qquad In our daily life, there may be something that added to image for some intention, or something that exists on the image that we want to remove. Our software will help them solve these problem. In our plan, we will make an application that can inpaint the image with a novel algorithm and we can not find and trace. 
+\section{Methodology}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Major Mission & Date & Finished or Not \\
+		\hline
+		Paper research, UML design, Requirement analysis
+		& 9/15 - 11/16& Finished \\
+		\hline
+		 Prototype design, Network structure design, 
+		 & 11/17 - 11/30 & TODO \\
+		\hline
+		 Backend developement, Algorithm implementation & 12/1 - 12/14 & TODO\\
+		\hline
+		 Frontend implementation, UI design & 12/14 - 12/28 & TODO\\
+		\hline
+		 Test and refactoring & 12/28 - 1/10 & TODO\\
+		\hline 
+		
+	\end{tabular}
+\end{table}
+\section{Hardware and Software Resources}
+\section{Task Distribution}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Student Name & Student ID & Task Assigned \\
+		\hline
+		Hu Hu & 5140519019 &  \\
+		\hline
+		Yesheng Ma & 5140209064 & \\
+		\hline
+		Yikai Zou & 5140309276 & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\end{document}
+
