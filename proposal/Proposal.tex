@@ -44,7 +44,7 @@
 %\setlength{\parskip}{2ex}
 \newenvironment{proofof}[1]{\bigskip\noindent{\itshape #1. }}{\hfill$\Box$\medskip}
 
-\usepackage{enumerate,fullpage,proof,color}
+\usepackage{enumerate,proof,color}
 \newcommand{\Infer}[2]{\vcenter{\infer{#2}{#1}}}
 \newcommand{\InferN}[3]{\vcenter{\infer[#3]{#2}{#1}}}
 
@@ -67,6 +67,8 @@
 \newpage
 
 
+\section{Introduction to Image In-painting}
+In-painting is the process of reconstructing lost or deteriorated parts of images and videos. In the digital world, in-painting (also known as image interpolation or video interpolation) refers to the application of sophisticated algorithms to replace lost or corrupted parts of the image data (mainly small regions or to remove small defects).
 
 
 \section{Background and Analysis of the Problem}
@@ -82,6 +84,9 @@ Problems in these image in-paintinging algorithms are that there is no universal
 efficient algorithms to solve all kinds of image in-paintinging problems.
 All currently available algorithms are all limited to a specific area of image
 in-paintinging, for example text in-paintinging.
+
+
+
 
 
 \section{Proposed Goal, Objectives, Target Population}
@@ -114,7 +119,7 @@ in-paintinging, for example text in-paintinging.
 
 \qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we would like to train this topic by convolutional neural netwrok, which haven't been implement by others up till now. 
 
-\qquad Finally, we will transform our result to practical implementation such as Andorid application and web application.
+\qquad Finally, we will transform our result to a practical implementation such as Andorid application and web application.
 
 
 
@@ -137,11 +142,17 @@ There are some possible problem that we may meet when do this project.
 	\item There is no previous people who do image in-painting using CNN model. So it is really a big challenge for us. We plan to try our best to get a great CNN model about image in-painting, but it may have some problem. But we will try out best to solve it.
 	\item It may need too much calculation that can not be done on embedded system such as Android phone. But we will try our best to optimize it. 
 \end{enumerate}
+
+
+
+
+
 \section{Benefits}
 \qquad In our daily life, there may be something that added to image for some intention, or something that exists on the image that we want to remove. Our software will help them solve these problem. In our plan, we will make an application that can inpaint the image with a novel algorithm and we can not find and trace. 
 \section{Methodology}
+Since this is a one-term software development project, we need to schedule the prject and start early. Following is our milestones to finish this project.
 \begin{table}[H]
-	\centering
+	\hspace{-1cm}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		Major Mission & Date & Finished or Not \\
@@ -158,8 +169,8 @@ There are some possible problem that we may meet when do this project.
 		\hline
 		 Test and refactoring & 12/28 - 1/10 & TODO\\
 		\hline 
-		
 	\end{tabular}
+	\caption{Methodology of this project}
 \end{table}
 
 
@@ -167,24 +178,30 @@ There are some possible problem that we may meet when do this project.
 In this project, we have to deal with hardware and software resources since 
 in a software development, these resources are critical.
 
-Hardware:
+
+
+\begin{itemize}
+\item Hardware:
 \begin{enumerate}
-\item 1 Android and 2 iPhone devices
+\item 1 Android and 2 iPhone devices to test applications
 \item GPU to train nerual networks
 \item 3 laptops for software development
 \end{enumerate}
 
-Software:
+\item Software:
 \begin{enumerate}
 \item use Python/Java as backend programming language
-\item deep learning training platform: tensorflow
+\item deep learning training platform: tensorflow, which is quite hot in deep learning community
 \item use Javascript to build frontend logic
 \item use CSS/html for UI design
 \end{enumerate}
 
+\item Teamwork management: we use \textsl{git}, which is the most widely used version control sytem (VCS) in open source communities. With the help of git, several programmers are able to work on the same project without interfere others code. Also, we can store these code on the cloud in case source code is lost.
 
+\end{itemize}
 
 \section{Task Distribution}
+In this software development project, we have three programmars to write the program. Thus we need to assign tasks to each person so that everyone can work effciently and no replicated work will be done. Out task assignment is shown as follows:
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}
@@ -198,6 +215,7 @@ Software:
 		Yikai Zou & 5140309276 & Documentation, paper research and UML design\\
 		\hline
 	\end{tabular}
+	\caption{Task assignment in this project}
 \end{table}
 
 \end{document}
