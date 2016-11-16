@@ -108,15 +108,42 @@ in-paintinging, for example text in-paintinging.
 \subsection{Target Population}
 \qquad Because we are going to make a smart phone application and a web page application, our target population is those who use smart phone and computer and want to inpaint their pictures.
 \section{Implementation Plan}
-\qquad First, we will look into the method to see what previous people did to accomplish this goal. 
+We will do this project as following steps.
+\begin{enumerate}[1.]
+	\item First, we will look into the method to see what previous people did to accomplish this goal. 
+	\item Then we will summarize their work and find the advantages and disadvantages of them. 
+	\item Next, we will try to solve the problem that haven't been solved and give a better method. For example, we would like to train this topic by convolutional neural netwrok, which haven't been implement by others up till now. 
+	\item Finally, we will transform our result to practical implementation such as Andorid application and web application.
+\end{enumerate}
+\subsection{Traditional Algorithm}
+\qquad In traditional algorithm, using some graphic operation, the pix in image that will be in-painted depends on the neighbor pix of it. 
 
-\qquad Then we will summarize their work and find the advantages and disadvantages of them. 
+\qquad Due to the context limitation, we don't present concrete formulas here, but following graphs will illustrate it.
+\begin{figure}[H]
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{5.jpg}
+		\caption{detail of the original image, region to be inpainted is in white.}
+	\end{subfigure}%
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{4.jpg}
+		\caption{restoration}
+	\end{subfigure}%
+	\caption{The restoration of image pix}
+\end{figure}
+ 
+\subsection{CNN Model}
+\qquad We plan to design a convolution neural network to solve this problem. According to our paper research, there is no previous people who used deep learning method to do image in-painting. We will try to design a CNN structure to solve it.
 
-\qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we would like to train this topic by convolutional neural netwrok, which haven't been implement by others up till now. 
+\qquad A typical CNN model is shown below. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{6.png}
+	\caption{A typical CNN model}
+\end{figure}
 
-\qquad Finally, we will transform our result to practical implementation such as Andorid application and web application.
-
-
+\qquad We are going to get training data from Internet and generate by ourself. Also, we plan to use Tensorflow as our development tool. 
 
 \section{Project Scope}
 \subsection{Project Goal and Task}
