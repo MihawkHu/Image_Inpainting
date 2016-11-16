@@ -65,8 +65,12 @@
 \newpage
 \tableofcontents\thispagestyle{empty}
 \newpage
+
+
+
+
 \section{Background and Analysis of the Problem}
-Several techniques:
+Several techniques that former researchers has developed includes:
 \begin{enumerate}[1.]
 	\item Partial Differential Equation (PDE) based algorithm is iterating and propagating information about the graph to restore the graph.
 	\item Texture synthesis based Image In-painting is to to produce more of that texture
@@ -74,8 +78,10 @@ Several techniques:
 	\item Semi-automatic and fast in-painting fixes the graph with the help of human assistance.
 	\item Using Markov random fields (MRF) to model the image and do image in-painting based on Bayesian learning in acyclic graphs.
 \end{enumerate}
-TODO:
-No universal and efficient algorithms to solve all kinds of image in-painting problems.
+Problems in these image in-painting algorithms are that there is no universal and 
+efficient algorithms to solve all kinds of image in-painting problems.
+All currently available algorithms are all limited to a specific area of image
+in-painting, for example text in-painting.
 
 
 \section{Proposed Goal, Objectives, Target Population}
@@ -107,6 +113,9 @@ No universal and efficient algorithms to solve all kinds of image in-painting pr
 \qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we manage to try this topic by CNN, which haven't been tried by anyone. 
 
 \qquad Finally, we will transform our result to practical implementation such as Andorid APP and web APP.
+
+
+
 \section{Project Scope}
 
 
@@ -135,7 +144,29 @@ No universal and efficient algorithms to solve all kinds of image in-painting pr
 		
 	\end{tabular}
 \end{table}
+
+
 \section{Hardware and Software Resources}
+In this project, we have to deal with hardware and software resources since 
+in a software development, these resources are critical.
+
+Hardware:
+\begin{enumerate}
+\item 1 Android and 2 iPhone devices
+\item GPU to train nerual networks
+\item 3 laptops for software development
+\end{enumerate}
+
+Software:
+\begin{enumerate}
+\item use Python/Java as backend programming language
+\item deep learning training platform: tensorflow
+\item use Javascript to build frontend logic
+\item use CSS/html for UI design
+\end{enumerate}
+
+
+
 \section{Task Distribution}
 \begin{table}[H]
 	\centering
