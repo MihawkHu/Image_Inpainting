@@ -65,8 +65,12 @@
 \newpage
 \tableofcontents\thispagestyle{empty}
 \newpage
+
+
+
+
 \section{Background and Analysis of the Problem}
-Several techniques:
+Several techniques that former researchers has developed includes:
 \begin{enumerate}[1.]
 	\item Partial Differential Equation (PDE) based algorithm is iterating and propagating information about the graph to restore the graph.
 	\item Texture synthesis based Image In-painting is to to produce more of that texture
@@ -74,39 +78,46 @@ Several techniques:
 	\item Semi-automatic and fast in-painting fixes the graph with the help of human assistance.
 	\item Using Markov random fields (MRF) to model the image and do image in-painting based on Bayesian learning in acyclic graphs.
 \end{enumerate}
-TODO:
-No universal and efficient algorithms to solve all kinds of image in-painting problems.
+Problems in these image in-painting algorithms are that there is no universal and 
+efficient algorithms to solve all kinds of image in-painting problems.
+All currently available algorithms are all limited to a specific area of image
+in-painting, for example text in-painting.
 
 
 \section{Proposed Goal, Objectives, Target Population}
 \subsection{Goal}
 \qquad This project managed to implement the image inpainting algorithm which is mentioned in previous papers. We will try to solve the problem that they meet and give the better method to do the image inpainting. The proposed goal is that when given a picture and a chosen area, ie, draw a area on smart phone. Then we will remove the object in this area and inpaint the picture, which we con't find there is something removed.
 
-\qquad Just as the following two images show, the left one is the origin image, the right one is the image after inpainting, you can find that the landmark is removed from the image.
+\qquad Just as the following two images shows, the left one is the origin image and the right one is the image after inpainting, you can find that the landmark is removed from the latter image.
 
 \begin{figure}[H]
 	\begin{subfigure}[pos]{.5\textwidth}
 		\centering
 		\includegraphics*[width=0.8\linewidth]{1.jpg}
+		\caption{image before in-painting}
 	\end{subfigure}%
 	\begin{subfigure}[pos]{.5\textwidth}
 		\centering
 		\includegraphics*[width=0.8\linewidth]{2.jpg}
+		\caption{image after in-painting}
 	\end{subfigure}%
 	\caption{Two images to illustrate image inpainting}
 \end{figure}
  
-\qquad Finally, we managed to make an application in Andorid and an application in web page.
+\qquad Finally, we should be albe to make an application both on the Android platform and as an application in web page.
 \subsection{Target Population}
-\qquad Because we managed to make a smart phone application and a web page application, our target population is those who use smart phone and computer and want to inpaint their pictures.
+\qquad Because we are going to make a smart phone application and a web page application, our target population is those who use smart phone and computer and want to inpaint their pictures.
 \section{Implementation Plan}
-\qquad First, we will research the method that how previous people do this. 
+\qquad First, we will look into the method to see what previous people did to accomplish this goal. 
 
-\qquad Then we will summary their work and find the advantage and disadvantage of them. 
+\qquad Then we will summarize their work and find the advantages and disadvantages of them. 
 
-\qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we manage to try this topic by CNN, which haven't been tried by anyone. 
+\qquad Next, we will try to solve the problem that haven't been solved and give a better method. For example, we would like to train this topic by convolutional neural netwrok, which haven't been implement by others up till now. 
 
-\qquad Finally, we will transform our result to practical implementation such as Andorid APP and web APP.
+\qquad Finally, we will transform our result to practical implementation such as Andorid application and web application.
+
+
+
 \section{Project Scope}
 \subsection{Project Goal and Task}
 \begin{enumerate}[1.]
@@ -148,7 +159,29 @@ There are some possible problem that we may meet when do this project.
 		
 	\end{tabular}
 \end{table}
+
+
 \section{Hardware and Software Resources}
+In this project, we have to deal with hardware and software resources since 
+in a software development, these resources are critical.
+
+Hardware:
+\begin{enumerate}
+\item 1 Android and 2 iPhone devices
+\item GPU to train nerual networks
+\item 3 laptops for software development
+\end{enumerate}
+
+Software:
+\begin{enumerate}
+\item use Python/Java as backend programming language
+\item deep learning training platform: tensorflow
+\item use Javascript to build frontend logic
+\item use CSS/html for UI design
+\end{enumerate}
+
+
+
 \section{Task Distribution}
 \begin{table}[H]
 	\centering
