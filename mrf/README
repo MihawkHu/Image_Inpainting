@@ -1,0 +1,34 @@
+The code and models in this package demonstrate image restoration as well as model learning and evaluation with the generic MRF image model described in the paper:
+
+   Uwe Schmidt, Qi Gao, Stefan Roth.
+   A Generative Perspective on MRFs in Low-Level Vision.
+   IEEE Conference on Computer Vision and Pattern Recognition (CVPR'10), San Francisco, USA, June 2010.
+
+Please be sure to cite this paper if you are using this code in your work.
+Please also see LICENSE in this directory for licensing information.
+
+Version:       1.1 (17/06/2011)
+Contact:       Uwe Schmidt <uwe.schmidt@gris.tu-darmstadt.de>
+Project page:  http://www.gris.tu-darmstadt.de/research/visinf/software/index.en.htm
+
+This demo requires MATLAB R2008a or later and several toolboxes (although untested with newer versions of MATLAB).
+The file Contents.m gives an overview of the code in this package. It can also be displayed by typing "help mmse_mrf_demo" from the MATLAB prompt.
+
+For the learning and evaluation demos, you need to download suitable natural images, for example from the Berkeley Segmentation Dataset (BSDS) at http://www.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/segbench/. Put all training images in the folder '+image_patches/training' and place the test images in '+image_patches/validation'.
+
+Note that the currently employed sampling strategy with convergence checking based on the "estimated potential scale reduction" is rather conservative. For consistency with the paper, we have left this in the code, but in practice it is likely that many fewer burn-in iterations suffice.
+
+Please note that learning high-order FoE models with stochastic gradient descent is somewhat dependent on initialization, learning rate, and stopping criteria. If you use data other than the training images from the Berkeley Segmentation Dataset as used in our paper, you may need to adjust these parameters.
+Learning the pairwise MRF, on the other hand, is quite robust to changes in the learning rate and initialization of the GSM potential; it is often best to first use fast 1-step contrastive divergence (CD), then tune the results by using more sampling iterations for CD.
+
+If you have problems with the code and/or believe to have found a bug, please let us know.
+For inquiries about the source code, either directly contact the author of the respective file, or Uwe Schmidt at uwe.schmidt@gris.tu-darmstadt.de.
+
+
+June 2011:
+
+Please note that code for non-blind deblurring and blind denoising, both with integrated noise estimation, is also available at the project page linked above. The code has been released in the context of a CVPR'11 paper:
+
+   Uwe Schmidt, Kevin Schelten, Stefan Roth.
+   Bayesian Deblurring with Integrated Noise Estimation.
+   IEEE Conference on Computer Vision and Pattern Recognition (CVPR'11), Colorado Springs, Colorado, June 2011.
