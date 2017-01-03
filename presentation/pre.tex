@@ -64,6 +64,9 @@
 \usepackage{booktabs}
 \usepackage{amssymb}
 \usepackage{color}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{float}
 
 
 
@@ -99,20 +102,109 @@
 \section{Existing Approaches}
 
 
-\section{Proposed Ideas}
+\section{Proposed Ideas and Implementation}
 \subsection{Markov Random Field}
 
-\subsection{Traditional Algorithm}
+\subsection{Exemplar-Based Algorithm}
+\begin{frame}{Exemplar-Based Algorithm}
+	\textbf{Observations:}
+	\begin{itemize}[<+->]
+		\item Using single pix as basic unit will result in blurry. \\So we using patch (i.e. 3x3) as basic unit.
+		\item In-painting order is important for final result. 
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{order1.png}\\
+			\includegraphics[width=0.8\linewidth]{order2.png}
+			\caption{In-painting by different order}
+		\end{figure}
+	\end{itemize}
+\end{frame}
 
+\begin{frame}{Exemplar-Based Algorithm}
+	\textbf{In-painting Process:}
+	\begin{itemize}[<+->]
+		\item Patch selection: We need to select the specific patch to in-paint first. We define the priority function:
+		\begin{equation*}
+		\centering
+		P(p)=C(p)*D(p)
+		\nonumber
+		\end{equation*}
+		where: $C(p)=\frac{\sum_{q\in \Phi _p\cap(-\Omega)}*C(q)}{|\Phi_p|}$, $D(p)=\frac{|\nabla I^\bot_p \cdot n_p|}{\alpha}$.
+		\item During each loop, we calculate the C(p) and D(p) of each patch, choose the patch with maximum priority.
+		\item Then we find the exemplar patch that minimize the Euclidean distance between them and in-paint the former patch.
+		\item We implemented this algorithm in python.
+	\end{itemize}
+\end{frame}
 
-\section{Implementation}
 
 \section{Demo}
+\begin{frame}{Demo}
+	\begin{itemize}
+		\item Using Markov random filed algorithm:
+		\begin{figure}
+			\centering
+			\includegraphics[width=1.0\linewidth]{rmf_result.png}
+			\caption{Result by MRF Implementation}
+		\end{figure}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo}
+	\begin{itemize}
+		\item Using exemplar-based algorithm:
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\linewidth]{eb_result.png}
+			\caption{Result by exemplar-based Implementation}
+		\end{figure}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Demo}
+	\begin{itemize}
+		\item Using exemplar-based algorithm (Con'd)
+		\begin{figure}
+			\begin{subfigure}[pos]{.5\textwidth}
+				\centering
+				\includegraphics*[width=0.6\linewidth]{in1.jpg}
+				\caption{Original picture}
+			\end{subfigure}%
+			\begin{subfigure}[pos]{.5\textwidth}
+				\centering
+				\includegraphics*[width=0.6\linewidth]{out1.jpg}
+				\caption{In-painted picture}
+			\end{subfigure}%
+			\caption{Result by exemplar-based Implementation}
+		\end{figure}
+	\end{itemize}
+\end{frame}
+
 
 \section{Conclusion and Future Work}
+\begin{frame}{Conclusion and Future Work}
+	\begin{itemize}[<+->]
+		\item We accomplished the chosen task and solved the problem. The result works well.
+		\item The proposed ideas given by us successfully solve the Image In-painting problem.\\\ \\
+		\item In this AI age, we plan to apply deep learning model in this topic in the future. We have designed the network structure for image in-painting. If we get enough data one day, we will try this deep learning model on this topic.
+	\end{itemize}
+\end{frame}
 
 \section*{Reference}
-
+\begin{frame}{Reference}
+	\begin{itemize}
+		\item M. Bertalmio, G. Sapiro, V. Caselles, and C. Ballester, Image in-painting, in $Proc.\ SIGGRAPH$, 2000, pp. 417-424
+		\item S. Roth and M. J. Black. Fields of experts. $IJCV$, 82(2):205–229,
+		2009.
+		\item A. Criminisi, P. Perez, and K. Toyama, Region filling and object
+		removal by examplar-based image inpainting, IEEE $Trans. Image\ 
+		Process.$, vol. 13, pp. 1200-1212, 2004.
+		\item G. E. Hinton. Training products of experts by minimizing contrastive
+		divergence. $Neural\ Comput.$, 14(8):1771-1800, 2002.
+		\item M. Welling, G. E. Hinton, and S. Osindero. Learning sparse to-
+		pographic representations with products of Student-t distributions.
+		$NIPS*2002$.
+	\end{itemize}
+\end{frame}
 
 %\begin{frame}
 %\frametitle{Overview}
