@@ -1,6 +1,0 @@
-17 Jun 2011 - 1.1
-- Fixed sign error in +pml/+distributions/@foe/energy.m (didn't really affect anything though)
-- Added +pml/+numerical/sle_spd_solver.m, which is now used to solve linear equation systems
-
-10 Jul 2010 - 1.0
-- Initial release

@@ -1,33 +1,4 @@
 %% INPAINT_MMSE - Image inpainting by approximating the MMSE estimate with samples
-% |IMG_INPAINTED = INPAINT_MMSE(MRF, IMG, MASK[, RB, DOPLOT])| will use MRF to inpaint
-% the pixels of IMG that are specified by MASK (boolean matrix of same size as IMG).
-% IMG can either be a gray-scale or RGB image.
-% Set RB to true to use a Rao-Blackwellized MMSE estimator (not used in the paper, suggested by George Papandreou).
-% Set DOPLOT to true if you want to see the inpainting progress.
-% Optional arguments default to false.
-% 
-% This file is part of the implementation as described in the paper:
-% 
-%  Uwe Schmidt, Qi Gao, Stefan Roth.
-%  A Generative Perspective on MRFs in Low-Level Vision.
-%  IEEE Conference on Computer Vision and Pattern Recognition (CVPR'10), San Francisco, USA, June 2010.
-% 
-% Please cite the paper if you are using this code in your work.
-% 
-% The code may be used free of charge for non-commercial and
-% educational purposes, the only requirement is that this text is
-% preserved within the derivative work. For any other purpose you
-% must contact the authors for permission. This code may not be
-% redistributed without permission from the authors.
-%
-%  Author:  Uwe Schmidt, Department of Computer Science, TU Darmstadt
-%  Contact: mail@uweschmidt.org
-% 
-% Project page:  http://www.gris.tu-darmstadt.de/research/visinf/software/index.en.htm
-
-% Copyright 2009-2011 TU Darmstadt, Darmstadt, Germany.
-% $Id: inpaint_mmse.m 238 2011-05-23 14:11:56Z uschmidt $
-
 function img_inpainted = inpaint_mmse(mrf, img, mask, rb, doplot)
   
   if ~isa(mrf, 'pml.distributions.gsm_foe'), error('MRF unsuitable'), end
@@ -111,9 +82,9 @@ function img_inpainted = inpaint_mmse(mrf, img, mask, rb, doplot)
       R_hat(:, iter) = pml.support.epsr(estimands(ceil(iter/2):iter,:,:));
       fprintf('\rBurn-in %2d / %2d, R_hat = %.3f', iter, max_burnin_iters, max(R_hat(:,iter)))
       if doplot
-        subplot(211), plot(1:iter, R_hat(:,1:iter)), title 'R\_hat (estimated potential scale reduction)'
-        subplot(212), title 'Energies of burn-in samples'
-        for j = 1:nlayers, plot(1:iter, estimands(1:iter,:,j)), hold on, end
+        plot(1:iter, R_hat(:,1:iter)), title 'R\_hat (estimated potential scale reduction)'
+        %subplot(212), title 'Energies of burn-in samples'
+        %for j = 1:nlayers, plot(1:iter, estimands(1:iter,:,j)), hold on, end
         drawnow
       end
       % discard at least 5 samples
@@ -153,10 +124,10 @@ function img_inpainted = inpaint_mmse(mrf, img, mask, rb, doplot)
               c, max_iters, mean(mapd(:,c)))
       
       if doplot
-        subplot(221), imshow(uint8(img_corrupted), 'InitialMagnification', 'fit'), title 'Corrupted'
-        subplot(222), imshow(uint8(img_inpainted), 'InitialMagnification', 'fit'), title 'Inpainted'
-        subplot(223), imshow(mask, 'InitialMagnification', 'fit'), title 'Mask'
-        subplot(224), plot(1:c, mapd(:,1:c)', 1:c, mean(mapd(:,1:c))', '--k'), title 'MAPD'
+        subplot(121), imshow(uint8(img_corrupted), 'InitialMagnification', 'fit'), title 'Corrupted'
+        subplot(122), imshow(uint8(img_inpainted), 'InitialMagnification', 'fit'), title 'Inpainted'
+        %subplot(223), imshow(mask, 'InitialMagnification', 'fit'), title 'Mask'
+        %subplot(224), plot(1:c, mapd(:,1:c)', 1:c, mean(mapd(:,1:c))', '--k'), title 'MAPD'
         drawnow
       end
       
