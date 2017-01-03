@@ -64,7 +64,7 @@
 \usepackage{booktabs}
 \usepackage{amssymb}
 \usepackage{color}
-
+\usepackage{subfig}
 
 
 \AtBeginSection[]{
@@ -94,13 +94,71 @@
 
 
 \section{Introduction}
+\begin{frame}{What is Image Inpainting?}
+\begin{definition}[Inpainting]
+The technique of modifying an image in an undetectable form.
+\end{definition}
+\begin{itemize}
+\item the restoration of old photographs and damaged film
+\item the removal of unwanted text
+\item the removal of objects in purpose
+\end{itemize}
 
+\begin{figure}
+  \centering
+  \subfloat[Unwanted Text]{\includegraphics[height=2cm,width=3cm]{text.png}}\qquad
+  \subfloat[Resotration]{\includegraphics[height=2cm,width=3cm]{damaged.png}}
+\end{figure}
+\end{frame}
 
 \section{Existing Approaches}
+\begin{frame}{Existing Approaches: \emph{SIGGRAPH '00}}
+The main idea is:
+\begin{center}
+\hspace*{-2cm}
+\emph{Propagate} in the direction as the normal around \\\hspace*{-2cm}the boundary of the region to be inpainted.
+\end{center}
+\vspace*{-2cm}
+\hspace*{8.5cm}
+\includegraphics[height=2cm, width=3cm]{prop.png}
+\pause
+\vspace*{1cm}
+Problems:
+\begin{itemize}
+\item Only local information are used.
+\item How much to propagate?
+\end{itemize}
+
+\end{frame}
+
 
 
 \section{Proposed Ideas}
 \subsection{Markov Random Field}
+\begin{frame}{Markov Random Field}
+Model the image as a Markov random field:\\
+\quad make use the image structure!
+
+
+\hspace*{8cm}
+\includegraphics[height=2cm, width=3cm]{mrf.jpg}
+
+\vspace*{-1cm}
+\begin{enumerate}
+\item Create a model with image prior.
+\item Train that model with a dataset.
+\item Propagate information with that learned model.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Implementation of MRF}
+\begin{enumerate}
+\item Implement the MRF model in MATLAB (useful toolboxes!)
+\item About model: a technique of \emph{product of experts} by Hinton
+\item About training: perform a gradient ascent
+\item About dataset: Berkeley dataset with 500 inpainting images
+\end{enumerate}
+\end{frame}
 
 \subsection{Traditional Algorithm}
 
