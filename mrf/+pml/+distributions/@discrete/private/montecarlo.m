@@ -1,12 +1,4 @@
 function xs = montecarlo(distribution, ys, N);
-% 
-% xs = montecarlo(distribution, ys, N)
-% Returns N x:s given y for a cumulative distribution y(x)
-%
-% Written by: Hedvig Sidenbladh, KTH, Sweden
-% http://www.nada.kth.se/~hedvig/
-% Date: March 2002
-
 
 % oldN >= N
 oldN = length(distribution);

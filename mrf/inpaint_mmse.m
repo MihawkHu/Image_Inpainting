@@ -103,7 +103,6 @@ function img_inpainted = inpaint_mmse(mrf, img, mask, rb, doplot)
     else
       if rb
         % Rao-Blackwellized estimator, which can lead to faster convergence.
-        % This was kindly suggested to us by George Papandreou and has not been used in the paper.
         x_inpainted = (x_mu + c * x_inpainted) / (c + 1);  c = c + 1;
       else
         % update inpainted images under each sampler (running average)
@@ -148,7 +147,6 @@ function img_inpainted = inpaint_mmse(mrf, img, mask, rb, doplot)
 end
 
 % Sample from the conditional distribution p(x_masked|x_fixed,z)
-% The variable names W, Z, x, and z are used as described in the paper (and suppl. material)
 function [x, x_mu] = sample_x_inpainting(this, z, mask, x_fixed)
   
   npixels = prod(this.imdims);

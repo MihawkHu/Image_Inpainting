@@ -1,32 +1,3 @@
-%% SGD - Stochastic Gradient Descent
-% |[X, REPORT] = SGD(FUNC, X0, DATA, [OPTIONS])| attempts to minimize FUNC by
-% doing stochastic gradient descent. FUNC is assumed to be the handle for a
-% function that takes 2 input arguments X and DATA and outputs GRADX. DATA
-% is assumed to be a matrix of size [ndims x nexamples], where each column
-% denotes a training example. X, X0, and GRADX must all be column vectors.
-% 
-% This file is part of the implementation as described in the paper:
-% 
-%  Uwe Schmidt, Qi Gao, Stefan Roth.
-%  A Generative Perspective on MRFs in Low-Level Vision.
-%  IEEE Conference on Computer Vision and Pattern Recognition (CVPR'10), San Francisco, USA, June 2010.
-% 
-% Please cite the paper if you are using this code in your work.
-% 
-% The code may be used free of charge for non-commercial and
-% educational purposes, the only requirement is that this text is
-% preserved within the derivative work. For any other purpose you
-% must contact the authors for permission. This code may not be
-% redistributed without permission from the authors.
-%
-%  Author:  Uwe Schmidt, Department of Computer Science, TU Darmstadt
-%  Contact: mail@uweschmidt.org
-% 
-% Project page:  http://www.gris.tu-darmstadt.de/research/visinf/software/index.en.htm
-
-% Copyright 2009-2010 TU Darmstadt, Darmstadt, Germany.
-% $Id: sgd.m 232 2010-07-08 13:18:35Z uschmidt $
-
 function [x, report] = sgd(func, x0, data, options)
   
   ndata = size(data, 2);

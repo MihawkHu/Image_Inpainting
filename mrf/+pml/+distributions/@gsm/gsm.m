@@ -1,37 +1,3 @@
-%% GSM - Uni- or multivariate GSM probability density
-% Data convention: 
-% The class supports multivariate densities defined over row
-% vectors. Multiple points or samples are stored in a matrix of size d x n,
-% where d is the number of dimensions of each point or sample, and n is the
-% number of distinct points or samples.
-% 
-% This file is part of the implementation as described in the papers:
-% 
-%  Uwe Schmidt, Qi Gao, Stefan Roth.
-%  A Generative Perspective on MRFs in Low-Level Vision.
-%  IEEE Conference on Computer Vision and Pattern Recognition (CVPR'10), San Francisco, USA, June 2010.
-%
-%  Uwe Schmidt, Kevin Schelten, Stefan Roth.
-%  Bayesian Deblurring with Integrated Noise Estimation.
-%  IEEE Conference on Computer Vision and Pattern Recognition (CVPR'11), Colorado Springs, Colorado, June 2011.
-%
-% Please cite the appropriate paper if you are using this code in your work.
-% 
-% The code may be used free of charge for non-commercial and
-% educational purposes, the only requirement is that this text is
-% preserved within the derivative work. For any other purpose you
-% must contact the authors for permission. This code may not be
-% redistributed without permission from the authors.
-%
-%  Author:  Stefan Roth, Department of Computer Science, TU Darmstadt
-%           Uwe Schmidt, Department of Computer Science, TU Darmstadt
-%  Contact: sroth@cs.tu-darmstadt.de, uwe.schmidt@gris.tu-darmstadt.de
-% 
-% Project page:  http://www.gris.tu-darmstadt.de/research/visinf/software/index.en.htm
-
-% Copyright 2009-2011 TU Darmstadt, Darmstadt, Germany.
-% $Id: gsm.m 240 2011-05-30 16:24:20Z uschmidt $
-
 classdef gsm < pml.distributions.density
   
   %% Properties
