@@ -1,7 +1,7 @@
 function demo_inpainting
 
-  img = double(imread('./images/zouyikai.png'));
-  mask = logical(imread('./images/zouyikai_mask.png'));
+  img = double(imread('../dataset/images/zouyikai.png'));
+  mask = logical(imread('../dataset/images/zouyikai_mask.png'));
   
   sc = 1/3;
   img = imresize(img, sc, 'nearest'); mask = imresize(mask, sc, 'nearest');
