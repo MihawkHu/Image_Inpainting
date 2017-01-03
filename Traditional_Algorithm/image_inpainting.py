@@ -3,13 +3,17 @@ from math import sqrt
 from PIL import Image
 from scipy import ndimage
 from scipy.misc import imsave
+from scipy.misc import toimage
 from skimage.morphology import erosion, disk
+import Tkinter
 
-input_img = Image.open("./input_image/001.jpg")
-img = np.array(input_img)
 
-input_mask = Image.open("./input_mask/002.bmp")
-mask = np.array(input_mask, dtype=np.uint8)
+from tkFileDialog import askopenfile
+from PIL import ImageTk
+from time import sleep
+import time
+import os
+
 
 
 # get the patch with center (x, y)
@@ -236,6 +240,9 @@ def update_parameter(x, y, confidence, mask, patch_size):
     return confidence, mask
 
 
+tmp_result_img = None
+tmp_result_tk = None
+
 # do image inpainting
 # the procedure is 
 #   1 Extract the manually selected initial front.
@@ -246,11 +253,11 @@ def update_parameter(x, y, confidence, mask, patch_size):
 #       2.d Find the exemplar that minimizes
 #       2.e Copy image data
 #   3 Update C(p)
-def image_inpainting(img, input_mask, patch_size=9):
+def image_inpainting(widget, img, input_mask, patch_size=9):
     unfilled_img = img / 255.0
     mask = input_mask / 255
 
-    # couputer the gray scale of input image
+    # couput the gray scale of input image
     grayscale = (unfilled_img[:, :, 0] * .2125 +
                  unfilled_img[:, :, 1] * .7154 +
                  unfilled_img[:, :, 2] * .0721)
@@ -262,6 +269,8 @@ def image_inpainting(img, input_mask, patch_size=9):
 
     # initialize image with mask
     unfilled_img[np.where(mask == 0)] = [0.0, 0.9999, 0.0]
+
+
 
     loop_cnt = 0
     while np.where(mask == 0)[0].any():
@@ -299,7 +308,7 @@ def image_inpainting(img, input_mask, patch_size=9):
         source_patch = get_exemplar_patch(max_patch, max_x, max_y, unfilled_img,
                                           patch_size)
 
-        # copy the pix value from soure patch to target patch 
+        # copy the pix value from soure patch to target patch
         copied_patch = copy_patch(max_patch, source_patch[0])
 
         # paste changed patch to image and update mask and confidence
@@ -315,9 +324,64 @@ def image_inpainting(img, input_mask, patch_size=9):
         # print the total loop number up to now
         loop_cnt += 1
         print loop_cnt, ": From ", max_priority_patch[0:], 'to', source_patch[1:]
-
         # save the temperate image
         imsave("./result_image/result1.jpg", unfilled_img)
 
 
-image_inpainting(img, mask)
+
+class ImageGUI:
+    def __init__(self):
+        self.root = Tkinter.Tk()
+        self.root.title('Image Inpainting')
+        self.root.geometry('750x550')
+
+        self.input_img_filename = ''
+        self.mask_img_filename = ''
+        self.output_img_filename = ''
+        self.input_img_filename = './input_image/001.jpg'
+        self.mask_img_filename = './input_mask/002.bmp'
+        self.result_img_filename = './result_image/result1.jpg'
+
+        self.input_button = Tkinter.Button(self.root, text='input image')
+        self.input_button['command'] = self.get_input_img_filename
+        self.input_button.place(x=100, y=10, anchor='nw')
+        self.input_panel = Tkinter.Label(self.root)
+        self.input_panel.place(x=30, y=40)
+
+        self.mask_button = Tkinter.Button(self.root, text='mask image')
+        self.mask_button['command'] = self.get_mask_img_filename
+        self.mask_button.place(x=500, y=10, anchor='nw')
+        self.mask_panel = Tkinter.Label(self.root)
+        self.mask_panel.place(x=430, y=40)
+
+        self.inpaint_button = Tkinter.Button(self.root, text='inpaint')
+        self.inpaint_button['command'] = self.inpainting
+        self.inpaint_button.place(x=300, y=510)
+        self.result_panel = Tkinter.Label(self.root)
+        self.result_panel.place(x=530, y = 100)
+
+        self.root.mainloop()
+
+    def get_input_img_filename(self):
+        # TODO: go back to botton
+        self.input_img_filename = askopenfile().name
+        self.inputImg = Image.open(self.input_img_filename)
+        self.inputImgTk = ImageTk.PhotoImage(self.inputImg)
+        self.input_panel['image'] = self.inputImgTk
+
+    def get_mask_img_filename(self):
+        # TODO: go back to button
+        self.mask_img_filename = askopenfile().name
+        self.maskImg = Image.open(self.mask_img_filename)
+        self.maskImgTk = ImageTk.PhotoImage(self.maskImg)
+        self.mask_panel['image'] = self.maskImgTk
+
+    def inpainting(self):
+        input_arr = np.array(self.inputImg)
+        mask_arr = np.array(self.maskImg)
+        self.resultImg = None
+        self.resultImgTk = None
+        image_inpainting(self, input_arr, mask_arr)
+
+
+thisGUI = ImageGUI()
