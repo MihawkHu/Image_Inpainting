@@ -1,0 +1,28 @@
+\section{Introduction}
+Image inpainting is the technique of modifying an image in an undetectable
+form. Some of the common cases image inpainting are:
+\begin{enumerate*}[label=(\roman*)]
+    \item the restoration of old photographs and damaged films
+    \item the removal of unwanted text from an image
+    \item the removal of an object in purpose
+\end{enumerate*}. The existence of the image inpainting technique dates
+back to the beginning of human art and we can see that the application of
+image inpainting by computer saves a lot of time compared with hand-carfted
+image inpaiting in museums.
+
+There are alreay several researches on this topic. One kind of technique is
+based on smoothing, \ie we inpaint that image based on the color of nearby
+pixels. This method has an intrinsic problem of blurring since the color
+chosed to inpaint the missing area are all based on the smoothing of nearby
+colors. Another approach is kind of patch-based image inpainting, where
+we choose a small patch around the edge of target area and propagate it into
+target area. In this method, in contrast to the smoothing-based algorithm,
+can better capture the texture of the image and will not lead to the problem
+of blurring.
+
+With regard to the patch-based method, every patch around the target region
+are assigned a priority. When we propagate the patch into target region,
+the patch with highest priority is chosed. In this paper, we propose an
+efficient priority assginment strategy that can better capture the structure
+of the whole image.
+\textcolor{blue}{Kimi: TODO: add illustration of our proposal}

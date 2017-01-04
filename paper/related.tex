@@ -1,0 +1,34 @@
+\section{Related work and our contribution}
+First we should make it clear that image inpainting and image denoising are
+actually different tasks. In image inpainting, we aim to remove part of 
+an image and a person needs to explicitly specify the area to be inpainted.
+In constrast, as regard to image denoising, the task is to remove the 
+``random'' noise of an image, which often does not need human supervison.
+\subsection{Related work}
+There are mainly two kinds of works on image inpainting: smoothing-based and
+patch-based.
+
+The research on image inpainting emerges on 2000, Marcelo Bertalmio \etal
+\cite{siggraph00} first deals with the problem of image inpainting. Their
+method is mainly based on intuition: propagate color information in the
+direction of normal. However the limitation of the algorithm is that the
+texture of its environment is unlikely to be reproduced.
+
+Roth and Black \cite{cvpr05} later come up with a more general framework 
+called \emph{Field of Experts} which is a Markov random field model. This
+work relies on the result of Hinton \cite{neco02}, where Hinton discovers
+that a factor in MRF can be modeled by a field of ``expert'' distributions.
+In this work, they first learn the model and then apply the learned model
+to Bertalmio's propagation method. Although this work in some sense captures
+image structure, the blurring problem is also serious after our experiment.
+
+Another different way to tackle this problem is proposed by Criminisi \etal
+ \cite{cvpr03,tip04}. They note that exemplar-based texture synthesis
+ contains the essential process requred to replicate the structure of image.
+ They introduce a priority for each exemplar and propagate according to
+ the priority of each exemplar. This technique does not have the problem
+ of blurring and can restore texture well, but may still fail for large
+ object removal.
+
+\subsection{Our contribution}
+\textcolor{blue}{add our contribution}
