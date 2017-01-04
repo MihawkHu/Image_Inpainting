@@ -120,7 +120,6 @@ The main idea is:
 \vspace*{-2cm}
 \hspace*{8.5cm}
 \includegraphics[height=2cm, width=3cm]{prop.png}
-\pause
 \vspace*{1cm}
 Problems:
 \begin{itemize}
@@ -162,8 +161,8 @@ Model the image as a Markov random field:\\
 \subsection{Exemplar-Based Algorithm}
 \begin{frame}{Exemplar-Based Algorithm}
 	\textbf{Observations:}
-	\begin{itemize}[<+->]
-		\item Using single pix as basic unit will result in blurry. \\So we using patch (i.e. 3x3) as basic unit.
+	\begin{itemize}
+		\item Using single pix as basic unit will result in blurry. \\So we used patch (i.e. 3x3) as basic unit.
 		\item In-painting order is important for final result. 
 		\begin{figure}
 			\centering
@@ -176,7 +175,7 @@ Model the image as a Markov random field:\\
 %
 \begin{frame}{Exemplar-Based Algorithm}
 	\textbf{In-painting Process:}
-	\begin{itemize}[<+->]
+	\begin{itemize}
 		\item Patch selection: We need to select the specific patch to inpaint first. We define the priority function:
 		\begin{equation*}
 		\centering
@@ -226,7 +225,7 @@ Model the image as a Markov random field:\\
 
 \section{Conclusion and Future Work}
 \begin{frame}{Conclusion and Future Work}
-	\begin{itemize}[<+->]
+	\begin{itemize}
 		\item We accomplished the chosen task and solved the problem. The result works well.
 		\item The proposed ideas given by us successfully solve the Image In-painting problem.\\\ \\ 
 		\item In this AI age, we plan to apply deep learning model in this topic in the future. We have designed the network structure for image in-painting. If we get enough data one day, we will try this deep learning model on this topic.
@@ -249,8 +248,4 @@ Model the image as a Markov random field:\\
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-\centering
-\Huge{{The End}}
-\end{frame}
 \end{document}
