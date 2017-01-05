@@ -80,3 +80,14 @@ Next, compute the whole priority of each patch in mask margin, choose the maximu
 Then, traverse the patch that is near the target patch, compute the Euclidean distance of each pair of patch, find the exemplar patch minimizing the Euclidean distance.
 
 Finally, copy the exemplar patch to the target patch where the pixel is unknown. And repeat these steps until there is no mask in the input image.
+
+\subsection{Implementation details}
+We implemented our algorithm in python. When we calculate the confidence term, data term and evaluation term, we used updated priority queue to operate data. It will save lots of time doing useless check and computing. 
+
+We apply different size of patch and compare the result with each other. According to out experiment, patch size $3*3$ or $5*5$ will result in better result.
+
+We assign normalization parameter $\alpha$ to 255 when we do inpainting. Due to the RGB form of our experiment images. It works well when assign any other significant value.
+
+In all experiment, the size of mask was set to be larger than the patch size. And the image size is equal or larger than twice the mask size. Mask can be any shape.
+
+We use a lot of images to test our algorithm, it may need much time when the mask is large, but it can successful handle different size of mask. Which is better than previous field of expert model \textcolor{blue}{add cite 2008 ijcv}, which will result in smoothing and blurring when mask size is large.
