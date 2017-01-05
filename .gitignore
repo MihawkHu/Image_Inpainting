@@ -1,5 +1,7 @@
 *.aux
 *.log
+*.bbl
+*.blg
 *.nav
 *.out
 *.snm
@@ -7,3 +9,5 @@
 *.toc
 *.vrb
 /presentation/*.pdf
+/report/*.pdf
+/paper/*.pdf
