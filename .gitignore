@@ -7,3 +7,5 @@
 *.toc
 *.vrb
 /presentation/*.pdf
+/report/*.pdf
+/paper/*.pdf
