@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{enumerate,proof,color}
+\usepackage{graphicx}
+
+\title{Software Engineering Report Skeleton}
+\providecommand{\keywords}[1]{\textbf{\textit{Index terms ---}} #1}
+\begin{document}
+\maketitle
+
+\section*{Reversion History}
+\begin{abstract}
+\qquad This document is to record the test and the analysis of our image inpainting software. In this document, there are test analysis report and describe the test case and suggestions. We design the test case and the test situation for testing our image inpainting software. We put our software on the open source community on the Internet and receive some feedback from different users.
+\end{abstract}
+\keywords{Image Inpainting Software, Tese, Test Case, Analysis}
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Purpose}
+\qquad This document is to record the test and the analysis of our image inpainting software. It is our test analysis report for our software, which illustrates the details of test result according to the test context, test scope ,test standard design in the test plan document. We design the test case and the test situation for testing our image inpainting software.
+
+Further more, we put our software on the open source community on the Internet and receive some feedback from different users.
+\subsection{Scope}
+\qquad This document will be the main reference for our testing. Therefore, the readers for this document are mainly the testers and the project manager of our image inpainting software. Test of our software is supposed to accord to this document.
+\subsection{Background}
+\qquad The image inpainting software is used for inpainting images. Users can choose their wanted area in the input image and our image inpainting software will inpaint the target area.There are different applicable scenario for out software including image text removal, object removal and image detail restoration etc. 
+
+The whole project began at September. After coding out the system and our testers master the testing knowledge and skills, we can do our test. 
+
+\section{Test Design}
+\qquad Due to that we implement two different to solve the image inpainting problem, there are two test case that we design for our image inpainting software.
+
+As for Markov Random Field Algorithm, it is used to inpaint image text and restore image trace. And as for exemplar-based algorithm, it is used to do big object removal. So we prepare different images to test the software performance. 
+
+We designed the test situation for different applicable scenario and different use-case. The test image is different from the training image. We will present some of the test image in this document to illustrate the result.
+
+\section{Test Result}
+\subsection{Use-Case}
+\subsubsection*{Overview}
+\qquad We will present part of our test result in the following.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Use-Case & Action & Expected Result& Actual Result\\
+		\hline
+		Input Image1 & Input a mask & Program goes well& Fit expectation\\
+		\hline
+		Input Image2 & Input a mask & An error message happened & Fit expectation\\
+		\hline
+		Input Mask1 & Input an image & Program goes well& Fit expectation\\
+		\hline
+		Input Mask2 & Input an image & An error message happened& Fit expectation\\
+		\hline
+		Output Image1 & Output an image & Program goes well& Fit expectation\\
+		\hline
+		Output Image2 & Output an image & An error message happened& Fit expectation\\
+		\hline
+		User Interface & User interaction & Program works well& Fit expectation\\
+		\hline
+	\end{tabular}
+	\caption{Use-Case Test Result Overview}
+\end{table}
+\subsubsection*{Input Image}
+\qquad We use some correct image input and wrong image input to test our software. The software replay fits our expectation. 
+\subsubsection*{Input Mask}
+\qquad We use some correct mask input and wrong mask input to test our software. The software replay fits our expectation. 
+\subsubsection*{Output Image}
+\qquad We use some correct image output and wrong image output to test our software. The software replay fits our expectation. 
+\subsubsection*{User Interface} 
+\qquad During our test process, the user interface works well.
+
+\subsection{Applicable Scenario}
+\subsubsection*{Overview}
+\qquad We tested our software in different applicable scenario, and we will put part of our test result in the following.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Applicable Scenario & Expected Result& Actual Result\\
+		\hline
+		Image Text Removal & Program goes well& Fit expectation\\
+		\hline
+		Image Object Removal & Program goes well& Fit expectation\\
+		\hline
+		Image Detail Restoration  & Program goes well& Fit expectation\\
+		\hline
+	\end{tabular}
+	\caption{Applicable Scenario Test Result Overview}
+\end{table}
+\subsubsection*{Image Text Removal}
+\qquad We used lots of image to test the image text removal function and it works well. The following is one of the result image:
+\begin{figure}[H]
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{horse_car.png}
+		\caption{image before in-paintinging}
+	\end{subfigure}%
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{horse_car_result.png}
+		\caption{image after in-paintinging}
+	\end{subfigure}%
+	\caption{Image Text Removal}
+\end{figure}
+\subsubsection*{Image Object Removal}
+\qquad We used lots of image to test the image object removal function and it works well. The following is one of the result image:
+\begin{figure}[H]
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{kid.jpg}
+		\caption{image before in-paintinging}
+	\end{subfigure}%
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{kid_result.jpg}
+		\caption{image after in-paintinging}
+	\end{subfigure}%
+	\caption{Image Object Removal}
+\end{figure}
+\subsubsection*{Image Detail Restoration}
+\qquad We used lots of image to test the image detail restoration function and it works well. The following is one of the result image:
+\begin{figure}[H]
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{zouyikai.png}
+		\caption{image before in-paintinging}
+	\end{subfigure}%
+	\begin{subfigure}[pos]{.5\textwidth}
+		\centering
+		\includegraphics*[width=0.8\linewidth]{zouyikai_result.png}
+		\caption{image after in-paintinging}
+	\end{subfigure}%
+	\caption{Image Object Removal}
+\end{figure}
+
+\section{Test Cost}
+\qquad The whole test is using our PC and get picture free from the Internet, so it did not cost any extra money. The test feedback is from our volunteer user and ourselves, it did not cost any extra money too.
+
+\section{Analysis}
+\subsection{Performance Evaluation}
+\qquad The test result illustrates that the software works well. The image inpainting function (users can choose their wanted area in the input image and our image inpainting software will inpaint the target area.There are different applicable scenario for out software including image text removal, object removal and image detail restoration etc.) works well.
+
+\subsection{Distinguishing Feature}
+\qquad As for the two algorithm that we implemented, it presents different expert field. When do text removal and detail restoration, Markov Random Field works better and Exemplar-Based Algorithm works well when do big object removal. So we design the inner choice program to choose different method for users' input image. 
+
+To sum up, the software works well when do image inpainting(image text removal, image object removal, image detail restoration).
+\subsection{Limitations}
+\qquad When the input mask is large, it may cost a little long time to process the image and get the result.
+\subsection{Future Work}
+\qquad We can get quicker performance and more image process function. Further, in this AI age, we can apply deep learning model in this topic when there is enough data.
+\section{Users Feedback}
+\qquad We have put our image inpainting ware on the open source community on the Internet. We also invite some students to use our software. Therefor, we get some feedback from our volunteer users. We will present some feedback in the following. \\ \ \\
+\textbf{Mike}: \\ \\
+\textbf{Amy}: \\ \\
+\textbf{Maniford}: \\ \\
+\textbf{Timmy}: 
+
+
+\section{Reference}
+
+
+
+
+
+
+
+
+
+\newpage
+% sample citation
+Cite a paper\cite{DBLP:conf/siggraph/BertalmioSCB00}
+\bibliography{report}
+\bibliographystyle{abbrv}
+
+
+\end{document}
