@@ -16,11 +16,11 @@ texture of its environment is unlikely to be reproduced.
 
 Roth and Black \cite{cvpr05} later come up with a more general framework 
 called \emph{Field of Experts} which is a Markov random field model. This
-work relies on the result of Hinton \cite{neco02}, where Hinton discovers
+work relies on the result of Hinton \cite{neco02, nips02}, where Hinton discovers
 that a factor in MRF can be modeled by a field of ``expert'' distributions.
 In this work, they first learn the model and then apply the learned model
 to Bertalmio's propagation method. Although this work in some sense captures
-image structure, the blurring problem is also serious after our experiment.
+image structure, the blurring problem is also serious after our experiment. Later Bugeau\etal \cite{tip10} refined their result and optimize the execution time of the original method, but the problem of blurring is still there.
 
 Another different way to tackle this problem is proposed by Criminisi \etal
  \cite{cvpr03,tip04}. They note that exemplar-based texture synthesis
@@ -28,7 +28,7 @@ Another different way to tackle this problem is proposed by Criminisi \etal
  They introduce a priority for each exemplar and propagate according to
  the priority of each exemplar. This technique does not have the problem
  of blurring and can restore texture well, but may still fail for large
- object removal.
+ object removal. Zongben Xu and Jian Sun also proposed a fix to the Criminisi's method in \cite{tip10sj}.
 
 \subsection{Our contribution}
 \textcolor{blue}{add our contribution}

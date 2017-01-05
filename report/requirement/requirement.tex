@@ -76,7 +76,7 @@ We want our image inpainting software to work cross-platform, thus a Windows OS 
 As regard to programming language environment, we need a minimal MATLAB 2014 version in order to run our code in Windows OS. We recommend you use Python 2.7 instead of Python 3 since the libraries we use might not work fine with Python 3. Also, if you are using Linux, please make sure you have installed some cross-platform libraries such is python-tkinter so that our code can work
 properly.
 
-\subsection{Architecture requirements}
+\subsection{Software Architecture requirements}
 Software architecture is the  the fundamental structures of a software system, the discipline of creating such structures, and the documentation of these structures. Software architecture is so important that it may influence our development in all aspects.
 
 We design the architecture of our image inpainting software to be a branch architecture. On the one hand, we implement a exemplar-based algorithm, which works fine for those images which explicit texture feature; on the other hand, we implement a MRF-based algorithm, which is based on probabilistic graphical model and works better for small damage inpainting. To combine these two components together, we have a unified user interface and it is easy for users to operate.
