@@ -1,5 +1,5 @@
 \section{Proposed methodology}
-According to the discussion above, although there are existed work about the exemplar-based image inpainting algorithm \etal\cite{cvpr03,tip04}. But previous attach a little too much calculation work to do when inpainting, it will result in long time to wait. Based on the previous work about exemplar-based image inpainting algorithm, we proposed a new evaluation criteria about the priority of each patch, which costs much less time than previous work and get good inpainted result.
+According to the discussion above, although there are existed work about the exemplar-based image inpainting algorithm \cite{cvpr03,tip04}. But previous attach a little too much calculation work to do when inpainting, it will result in long time to wait. Based on the previous work about exemplar-based image inpainting algorithm, we proposed a new evaluation criteria about the priority of each patch, which costs much less time than previous work and get good inpainted result.
 \subsection{Two key observations}
 \noindent \emph{A. Basic process unit size is important}
 
@@ -11,7 +11,7 @@ In our experiment, we test different unit size and compare them. Due to the diff
 
 \noindent \emph{B. Inpainting order is important}
 
-When the image is inpainted by exemplar-based algorithm, the final result depends on the inpainting order selected by the algorithm. Some previous works randomly select the patch to inpaint, the result is worse than some previous works which select specific patch to do inpainting \etal \cite{sivip16}. This section will demonstrate that the quality of
+When the image is inpainted by exemplar-based algorithm, the final result depends on the inpainting order selected by the algorithm. Some previous works randomly select the patch to inpaint, the result is worse than some previous works which select specific patch to do inpainting \cite{sivip16}. This section will demonstrate that the quality of
 the output image synthesis is highly influenced by the order of the image inpainting. 
 \begin{figure}
 	\centering
@@ -20,10 +20,10 @@ the output image synthesis is highly influenced by the order of the image inpain
 	\caption{\textbf{The importance of the inpainting order}. The first group of images is the process of being inpainted from the up to the bottom, the second group of images is the process of being inpainted from the specific order.}
 \end{figure}
 
-In order to understand the importance of the inpainting order, a comparison between the specific order and fixed order is shown in $Figure.1$. the first group of images is using the up-to-bottom patch selection. Due to the target patch is always influenced by the nearby patch, so the bottom horizontal line of the triangle has not been inpainted. But if we do inpainting from the intersection of the target region and the bottom horizontal line, just as is shown in the second group of images. The horizontal line will be inpainted much better.
+In order to understand the importance of the inpainting order, a comparison between the specific order and fixed order is shown in Figure.1. the first group of images is using the up-to-bottom patch selection. Due to the target patch is always influenced by the nearby patch, so the bottom horizontal line of the triangle has not been inpainted. But if we do inpainting from the intersection of the target region and the bottom horizontal line, just as is shown in the second group of images. The horizontal line will be inpainted much better.
 
 Therefore, a better image inpainting algorithm would be one that gives higher priority of synthesis to those regions of the target region which lie on
-the continuation of image structures, as shown in the second group of $Figure.1$. 
+the continuation of image structures, as shown in the second group of Figure.1. 
 
 \subsection{Our proposed method}
 According to the two key observations mentioned above, the selection of patch that do inpainting first effects the final result much. So we should carefully select the specific patch. 
@@ -33,7 +33,7 @@ According to the two key observations mentioned above, the selection of patch th
 	\caption{\textbf{Notation figure}. The mask region and and the know region. The gradient and the unit vector is shown in the figure}
 \end{figure}
 
-Based on the image itself, in order to restore the original image, we should start from the intersection of the real line in image and the margin of the mask. So we use the dot cross result of the gradient and the unit vector orthogonal to the margin of the target region. Given a patch $\Phi_p$ centred at the point p for some $p \in \Omega$ (see $Figure.2$.), we define its priority $P(p)$ as the product of two terms:
+Based on the image itself, in order to restore the original image, we should start from the intersection of the real line in image and the margin of the mask. So we use the dot cross result of the gradient and the unit vector orthogonal to the margin of the target region. Given a patch $\Phi_p$ centred at the point p for some $p \in \Omega$ (see Figure.2.), we define its priority $P(p)$ as the product of two terms:
 \begin{equation*}
 \centering
 P(p)=C(p)*D(P)*A(p)
